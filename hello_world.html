@@ -89,6 +89,196 @@ want.</p>
 <div class="src src-css">
 <div class="highlight">
 <pre tabindex="0" style="background-color:#fff;"><code><span style="display:flex;"><span><span style="color:#000;font-weight:bold">*</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">box-sizing</span>: <span style="color:#000;font-weight:bold">border-box</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">margin</span>: <span style="color:#099">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">padding</span>: <span style="color:#099">0</span>;
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">html</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">overflow-y</span>: <span style="color:#000;font-weight:bold">scroll</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">height</span>: <span style="color:#099">100</span><span style="color:#458;font-weight:bold">%</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">font</span>: <span style="color:#099">100</span><span style="color:#458;font-weight:bold">%</span><span style="color:#000;font-weight:bold">/</span><span style="color:#099">1.5</span> <span style="color:#000;font-weight:bold">sans-serif</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">word-wrap</span>: <span style="color:#000;font-weight:bold">break-word</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">margin</span>: <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">auto</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">padding</span>: <span style="color:#099">1.5</span><span style="color:#458;font-weight:bold">em</span>;
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>@<span style="color:#000;font-weight:bold">media</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000080">min-width</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000080">768px</span><span style="color:#000;font-weight:bold">)</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000080">html</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">font-size</span>: <span style="color:#099">125</span><span style="color:#458;font-weight:bold">%</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">max-width</span>: <span style="color:#099">42</span><span style="color:#458;font-weight:bold">em</span>;
+</span></span><span style="display:flex;"><span> } }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">h1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000080">h2</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000080">h3</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000080">h4</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">margin</span>: <span style="color:#099">2.5</span><span style="color:#458;font-weight:bold">rem</span> <span style="color:#099">0</span> <span style="color:#099">1.5</span><span style="color:#458;font-weight:bold">rem</span> <span style="color:#099">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">line-height</span>: <span style="color:#099">1.25</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">color</span>: <span style="color:#099">#333</span>;
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">a</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">color</span>: <span style="color:#099">#fa6432</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">text-decoration</span>: <span style="color:#000;font-weight:bold">none</span>;
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span><span style="color:#000080">a</span>:<span style="color:#3c5d5d;font-weight:bold">hover</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000080">a</span>:<span style="color:#3c5d5d;font-weight:bold">focus</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000080">a</span>:<span style="color:#3c5d5d;font-weight:bold">active</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">text-decoration</span>: <span style="color:#000;font-weight:bold">underline</span>;
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">p</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">margin</span>: <span style="color:#099">1</span><span style="color:#458;font-weight:bold">em</span> <span style="color:#099">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">line-height</span>: <span style="color:#099">1.5</span>;
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span><span style="color:#000080">p</span> <span style="color:#000080">code</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">background-color</span>: <span style="color:#099">#eee</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">padding</span>: <span style="color:#099">0.05</span><span style="color:#458;font-weight:bold">em</span> <span style="color:#099">0.2</span><span style="color:#458;font-weight:bold">em</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">border</span>: <span style="color:#099">1</span><span style="color:#458;font-weight:bold">px</span> <span style="color:#000;font-weight:bold">solid</span> <span style="color:#099">#ccc</span>;
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">ol</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000080">ul</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">margin</span>: <span style="color:#099">1</span><span style="color:#458;font-weight:bold">em</span>;
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span><span style="color:#000080">ol</span> <span style="color:#000080">li</span> <span style="color:#000080">ol</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000080">ol</span> <span style="color:#000080">li</span> <span style="color:#000080">ul</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000080">ul</span> <span style="color:#000080">li</span> <span style="color:#000080">ol</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000080">ul</span> <span style="color:#000080">li</span> <span style="color:#000080">ul</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">margin</span>: <span style="color:#099">0</span> <span style="color:#099">2</span><span style="color:#458;font-weight:bold">em</span>;
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span><span style="color:#000080">ol</span> <span style="color:#000080">li</span> <span style="color:#000080">p</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000080">ul</span> <span style="color:#000080">li</span> <span style="color:#000080">p</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">margin</span>: <span style="color:#099">0</span>;
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">dl</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">font-family</span>: <span style="color:#000;font-weight:bold">monospace</span>, <span style="color:#000;font-weight:bold">monospace</span>;
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span><span style="color:#000080">dl</span> <span style="color:#000080">dt</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">font-weight</span>: <span style="color:#000;font-weight:bold">bold</span>;
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span><span style="color:#000080">dl</span> <span style="color:#000080">dd</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">margin</span>: <span style="color:#099">-1</span><span style="color:#458;font-weight:bold">em</span> <span style="color:#099">0</span> <span style="color:#099">1</span><span style="color:#458;font-weight:bold">em</span> <span style="color:#099">1</span><span style="color:#458;font-weight:bold">em</span>;
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">img</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">max-width</span>: <span style="color:#099">100</span><span style="color:#458;font-weight:bold">%</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">display</span>: <span style="color:#000;font-weight:bold">block</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">margin</span>: <span style="color:#099">0</span> <span style="color:#000;font-weight:bold">auto</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">padding</span>: <span style="color:#099">0.5</span><span style="color:#458;font-weight:bold">em</span>;
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">blockquote</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">padding-left</span>: <span style="color:#099">1</span><span style="color:#458;font-weight:bold">em</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">font-style</span>: <span style="color:#000;font-weight:bold">italic</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">border-left</span>: <span style="color:#000;font-weight:bold">solid</span> <span style="color:#099">1</span><span style="color:#458;font-weight:bold">px</span> <span style="color:#099">#fa6432</span>;
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">table</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">font-size</span>: <span style="color:#099">1</span><span style="color:#458;font-weight:bold">rem</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">text-align</span>: <span style="color:#000;font-weight:bold">left</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">caption-side</span>: <span style="color:#000;font-weight:bold">bottom</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">margin-bottom</span>: <span style="color:#099">2</span><span style="color:#458;font-weight:bold">em</span>;
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span><span style="color:#000080">table</span> <span style="color:#000;font-weight:bold">*</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">border</span>: <span style="color:#000;font-weight:bold">none</span>;
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span><span style="color:#000080">table</span> <span style="color:#000080">thead</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000080">table</span> <span style="color:#000080">tr</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">display</span>: <span style="color:#000;font-weight:bold">table</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">table-layout</span>: <span style="color:#000;font-weight:bold">fixed</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">width</span>: <span style="color:#099">100</span><span style="color:#458;font-weight:bold">%</span>;
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span><span style="color:#000080">table</span> <span style="color:#000080">tr</span>:<span style="color:#3c5d5d;font-weight:bold">nth-child</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000080">even</span><span style="color:#000;font-weight:bold">)</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">background-color</span>: <span style="color:#0086b3">rgba</span>(<span style="color:#099">200</span>, <span style="color:#099">200</span>, <span style="color:#099">200</span>, <span style="color:#099">0.2</span>);
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span><span style="color:#000080">table</span> <span style="color:#000080">tbody</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">display</span>: <span style="color:#000;font-weight:bold">block</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">max-height</span>: <span style="color:#099">70</span><span style="color:#458;font-weight:bold">vh</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">overflow-y</span>: <span style="color:#000;font-weight:bold">auto</span>;
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span><span style="color:#000080">table</span> <span style="color:#000080">td</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000080">table</span> <span style="color:#000080">th</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">padding</span>: <span style="color:#099">0.25</span><span style="color:#458;font-weight:bold">em</span>;
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">table</span><span style="color:#000;font-weight:bold">,</span> .<span style="color:#458;font-weight:bold">highlight</span> <span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#000080">pre</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000080">pre</span>.<span style="color:#458;font-weight:bold">example</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">max-height</span>: <span style="color:#099">70</span><span style="color:#458;font-weight:bold">vh</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">margin</span>: <span style="color:#099">1</span><span style="color:#458;font-weight:bold">em</span> <span style="color:#099">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">padding</span>: <span style="color:#099">1</span><span style="color:#458;font-weight:bold">em</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">overflow</span>: <span style="color:#000;font-weight:bold">auto</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">font-size</span>: <span style="color:#099">0.85</span><span style="color:#458;font-weight:bold">rem</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">font-family</span>: <span style="color:#000;font-weight:bold">monospace</span>, <span style="color:#000;font-weight:bold">monospace</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">border</span>: <span style="color:#099">1</span><span style="color:#458;font-weight:bold">px</span> <span style="color:#000;font-weight:bold">dashed</span> <span style="color:#0086b3">rgba</span>(<span style="color:#099">250</span>, <span style="color:#099">100</span>, <span style="color:#099">50</span>, <span style="color:#099">0.5</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.<span style="color:#458;font-weight:bold">title</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">font-size</span>: <span style="color:#099">2.5</span><span style="color:#458;font-weight:bold">em</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.<span style="color:#458;font-weight:bold">subtitle</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">font-weight</span>: <span style="color:#000;font-weight:bold">normal</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">font-size</span>: <span style="color:#099">0.75</span><span style="color:#458;font-weight:bold">em</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">color</span>: <span style="color:#099">#666</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.<span style="color:#458;font-weight:bold">tags</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">margin-top</span>: <span style="color:#099">-1.5</span><span style="color:#458;font-weight:bold">rem</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">padding-bottom</span>: <span style="color:#099">1.5</span><span style="color:#458;font-weight:bold">em</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#458;font-weight:bold">tags</span> <span style="color:#000080">li</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">display</span>: <span style="color:#000;font-weight:bold">inline</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">margin-right</span>: <span style="color:#099">0.5</span><span style="color:#458;font-weight:bold">em</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">figure</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">margin</span>: <span style="color:#099">1</span><span style="color:#458;font-weight:bold">em</span> <span style="color:#099">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#000080">figure</span> <span style="color:#000080">figcaption</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">font-family</span>: <span style="color:#000;font-weight:bold">monospace</span>, <span style="color:#000;font-weight:bold">monospace</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">font-size</span>: <span style="color:#099">0.75</span><span style="color:#458;font-weight:bold">em</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">text-align</span>: <span style="color:#000;font-weight:bold">center</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">color</span>: <span style="color:#000;font-weight:bold">grey</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.<span style="color:#458;font-weight:bold">footnote-definition</span> <span style="color:#000080">sup</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">margin-left</span>: <span style="color:#099">-1.5</span><span style="color:#458;font-weight:bold">em</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">float</span>: <span style="color:#000;font-weight:bold">left</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.<span style="color:#458;font-weight:bold">footnote-definition</span> .<span style="color:#458;font-weight:bold">footnote-body</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">margin</span>: <span style="color:#099">1</span><span style="color:#458;font-weight:bold">em</span> <span style="color:#099">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">padding</span>: <span style="color:#099">0</span> <span style="color:#099">1</span><span style="color:#458;font-weight:bold">em</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">border</span>: <span style="color:#099">1</span><span style="color:#458;font-weight:bold">px</span> <span style="color:#000;font-weight:bold">dashed</span> <span style="color:#0086b3">rgba</span>(<span style="color:#099">250</span>, <span style="color:#099">100</span>, <span style="color:#099">50</span>, <span style="color:#099">0.3</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">background-color</span>: <span style="color:#0086b3">rgba</span>(<span style="color:#099">200</span>, <span style="color:#099">200</span>, <span style="color:#099">200</span>, <span style="color:#099">0.2</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#458;font-weight:bold">footnote-definition</span> .<span style="color:#458;font-weight:bold">footnote-body</span> <span style="color:#000080">p</span>:<span style="color:#3c5d5d;font-weight:bold">only-child</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">margin</span>: <span style="color:#099">0.2</span><span style="color:#458;font-weight:bold">em</span> <span style="color:#099">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000080">header</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">display</span>: <span style="color:#000;font-weight:bold">flex</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">justify-content</span>: <span style="color:#000;font-weight:bold">space-between</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#000080">header</span> <span style="color:#000080">nav</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">display</span>: <span style="color:#000;font-weight:bold">flex</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">align-items</span>: <span style="color:#000;font-weight:bold">center</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">justify-content</span>: <span style="color:#000;font-weight:bold">space-between</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#000080">header</span> <span style="color:#000080">a</span> <span style="color:#000;font-weight:bold">+</span> <span style="color:#000080">a</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">margin-left</span>: <span style="color:#099">1</span><span style="color:#458;font-weight:bold">rem</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.<span style="color:#458;font-weight:bold">posts</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">margin</span>: <span style="color:#099">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">list-style</span>: <span style="color:#000;font-weight:bold">none</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#458;font-weight:bold">posts</span> .<span style="color:#458;font-weight:bold">post</span> <span style="color:#000080">a</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">display</span>: <span style="color:#000;font-weight:bold">flex</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">padding</span>: <span style="color:#099">0.5</span><span style="color:#458;font-weight:bold">em</span> <span style="color:#099">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">color</span>: <span style="color:#000;font-weight:bold">black</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#458;font-weight:bold">posts</span> .<span style="color:#458;font-weight:bold">post</span> <span style="color:#000080">a</span>:<span style="color:#3c5d5d;font-weight:bold">hover</span><span style="color:#000;font-weight:bold">,</span> .<span style="color:#458;font-weight:bold">posts</span> .<span style="color:#458;font-weight:bold">post</span> <span style="color:#000080">a</span>:<span style="color:#3c5d5d;font-weight:bold">focus</span><span style="color:#000;font-weight:bold">,</span> .<span style="color:#458;font-weight:bold">posts</span> .<span style="color:#458;font-weight:bold">post</span> <span style="color:#000080">a</span>:<span style="color:#3c5d5d;font-weight:bold">active</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">text-decoration</span>: <span style="color:#000;font-weight:bold">none</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">background</span>: <span style="color:#0086b3">rgba</span>(<span style="color:#099">200</span>, <span style="color:#099">200</span>, <span style="color:#099">200</span>, <span style="color:#099">0.2</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#458;font-weight:bold">posts</span> .<span style="color:#458;font-weight:bold">post</span> <span style="color:#000080">date</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">font-family</span>: <span style="color:#000;font-weight:bold">monospace</span>, <span style="color:#000;font-weight:bold">monospace</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">font-size</span>: <span style="color:#099">0.8</span><span style="color:#458;font-weight:bold">rem</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">vertical-align</span>: <span style="color:#000;font-weight:bold">middle</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">padding-right</span>: <span style="color:#099">2</span><span style="color:#458;font-weight:bold">rem</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">color</span>: <span style="color:#000;font-weight:bold">grey</span>;
+</span></span><span style="display:flex;"><span>}</span></span></code></pre>
 </div>
 </div>
 </div>

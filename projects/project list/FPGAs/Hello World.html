@@ -1,0 +1,80 @@
+
+<!doctype html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/style.css" type="text/css" />
+  <title>Hello World</title>
+</head>
+
+  <body>
+    <header class='header'>
+  <a class="logo" href="/">home</a>
+  <nav>
+    <a href="/blog">Blog</a>
+    <a href="/projects">Projects</a>
+    <a href="https://www.github.com/CosmicSurgery">github</a>
+  </nav>
+</header>
+
+    <div class="container">
+      <h1 class="title"> Hello World
+        <br>
+        <span class="subtitle"></span>
+      </h1>
+      <p>
+        This walkthrough was inspired by the numerous failed tutorials that I was unable to
+        complete. After successfully following a few tutorials and getting the LED's on my 
+        zybo zynq-7000 developers board to blink or respond to switches enforced by digitial
+        logic on the fpga, I tried to integrate the zynq processor as well. As it turns out it's
+        much easier said than done.  
+      </p>
+      <p>
+        After realizing that my version of vivado (2019.2) no longer 
+        supported the vivado sdk for programming the processor, I had to install the new sdk: Vitis.
+        Just the installation of Vivado and Vitis took me about a week since I needed to clear nearly
+        60 gb on my computer, and I couldn't figure out how to download a standalone version of vitis.
+        I initially tried to go with vivado 2012.2 (it's a smaller sized program) but I got advice from an expert
+        telling me not to do this.
+      </p>
+      <p>
+        The thing that makes this flow so difficult is learning how to: integrate the different applications, manage the different files
+        understand the order of operations. All of this is before even understanding the details of your own project! 
+        For this reason clear and detailed tutorials are crucial for beginners in this space. 
+      </p>
+      <p>
+        Thanks to Robert Swan<sup class="footnote-reference"><a id="footnote-reference-1" href="#footnote-1">1</a></sup>, who created the youtube video demonstrating a simple hello world build. After banging my head against the 
+        wall it was nice to see my resilience pay off!
+      </p>
+      
+      <figure>
+        <img src="/projects/project list/FPGAs/captures/youtube comment.PNG" title="scattered images of tech layoffs">
+        <figcaption>Looks like I wasn't the only one.</figcaption>
+    </figure>
+    
+<div id="outline-container-headline-1" class="outline-2">
+<h3 id="headline-1"></h3>
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>
+
+</p>
+</div>
+</div>
+<div class="footnotes">
+  <hr class="footnotes-separatator">
+  <div class="footnote-definitions">
+    <div class="footnote-definition">
+      <sup id="footnote-1"><a href="#footnote-reference-1">1</a></sup>
+        <div class="footnote-body">
+          <ul>
+            <li><a href="https://www.youtube.com/watch?v=Mb-cStd4Tqs">Hello world video using Xilinx Zynq, Vivado 2020, and Vitis</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

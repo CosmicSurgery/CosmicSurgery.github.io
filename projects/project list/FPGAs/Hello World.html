@@ -24,10 +24,10 @@
         <span class="subtitle"></span>
       </h1>
       <p>
-        This walkthrough was inspired by the numerous failed tutorials that I was unable to
-        complete. After successfully following a few tutorials and getting the LED's on my 
-        zybo zynq-7000 developers board to blink or respond to switches enforced by digitial
-        logic on the fpga, I tried to integrate the zynq processor as well. As it turns out it's
+        This walkthrough was inspired by the numerous failed PS integration tutorials that I was unable to
+        complete. After following a few PL tutorials (successfully) and getting the LED's on my 
+        zynq-7000 developers board to blink or respond to switches enforced by digitial
+        logic on the fpga, I tried to integrate the processor as well. As it turns out it's
         much easier said than done.  
       </p>
       <p>
@@ -43,15 +43,109 @@
         understand the order of operations. All of this is before even understanding the details of your own project! 
         For this reason clear and detailed tutorials are crucial for beginners in this space. 
       </p>
+      <h1 class="headline-2"> Back to the basics
+        <br>
+      </h1>
+      <figure>
+        <img src="/projects/project list/FPGAs/captures/youtube comment.PNG" title="youtube comment">
+        <figcaption>Looks like I wasn't the only one.</figcaption>
+      </figure>
       <p>
         Thanks to Robert Swan<sup class="footnote-reference"><a id="footnote-reference-1" href="#footnote-1">1</a></sup>, who created the youtube video demonstrating a simple hello world build. After banging my head against the 
         wall it was nice to see my resilience pay off!
       </p>
-      
+      <p>
+        This post is primarily a reference for myself, to help me develop consistent flow for all future projects that are going
+        to involve some level of software integration. Therefore I will be skipping steps that are obvious to me.
+      </p>
+      <p>
+        Acronyms:
+      </p>
+      <ul>
+        <li><b>PL</b> - Programmable Logic</li>
+        <li><b>PS</b> - Processing System</li>
+        <li><b>HDL</b> - Hardware description language</li>
+        <li><b>HLD</b> - High level design</li>
+      </ul>
       <figure>
-        <img src="/projects/project list/FPGAs/captures/youtube comment.PNG" title="scattered images of tech layoffs">
-        <figcaption>Looks like I wasn't the only one.</figcaption>
-    </figure>
+        <img src="/projects/project list/FPGAs/captures/3 create block design.PNG" title="Create block design">
+        <figcaption>Create block design</figcaption>
+      </figure>
+      <p>
+        We start out by directly creating block design. I'm not sure why in this case we don't bother at all with the constraints
+        file (i guess the fpga isn't really doing anything?). For fpga implementations that seems like it would be an important part.
+        Of course we will be needing the Zynq processor, which we can add by either right clicking on block design window, 
+        or by clicking the plus sign in the block design toolbar. Next we click <b>Run Block Automation</b> in the green banner.
+        The default presets are okay in this tutorial.    
+      </p>
+      <p>
+        Next we click on <b>Validate Design (F8)</b> in the design block toolbar. Here Xilinx is just checking to make sure there
+        aren't any glaring errors.
+      </p>
+      <figure>
+        <img src="/projects/project list/FPGAs/captures/7 error.PNG" title="Error">
+        <figcaption>Error.</figcaption>
+      </figure>
+      <p>
+        How did I have an error already?!? I followed the tutorial exactly!
+      </p>
+      <figure>
+        <img src="/projects/project list/FPGAs/captures/8 i had to connect these.PNG" title="I had to connect these.">
+        <figcaption>I had to connect these.</figcaption>
+      </figure>
+      <p>
+        A quick google search and I found out that I needed to connect FCLK_CLK0 to M_AXI_GP0-ACLK... Don't ask me why. When trying
+        validate the design I also got four warnings warning me that DDR interfaces may fail when entering negative DQS skew values. 
+        The official zybo tutorials tell us these warnings may happen and to just ignore them. Off to a good start!
+      </p>
+      <figure>
+        <img src="/projects/project list/FPGAs/captures/9 don't worry about these.PNG" title="Don't worry about these.">
+        <figcaption>Don't worry about these.</figcaption>
+      </figure>
+      <p>
+        Next we needed to click on the design source and Create an HDL wrapper. According to Digilent
+        <sup class="footnote-reference"><a id="footnote-reference-2" href="#footnote-2">2</a></sup>, "this process translates 
+        the block design into a source file that can be read by the Vivado tools, and is used to build the actual design". Got it...
+        Leos313 
+        <li><b>PL</b> - Programmable Logic</li>
+        explains further: "The WRAPPER is the file that connect the output/input port of your design to the physical pin 
+        described in the constraint file."
+      </p>
+      <p>
+        We need to generate output products too apparently. Can read more about that here
+        <sup class="footnote-reference"><a id="footnote-reference-3" href="#footnote-3">3</a></sup>. 
+      </p>
+      <p>
+        Finally we're ready to Launch Vitis. Click, <b>Create new platform project</b> and make sure to choose the same location
+        as your vivado project (I think this is what I was doing wrong). 
+      </p>  
+      <figure>
+        <img src="/projects/project list/FPGAs/captures/13 Load xsa.PNG" title="Load xsa">
+        <figcaption>Load xsa.</figcaption>
+      </figure>
+      <p>
+        The .xsa file is the HDL wrapper we created earlier. Then we should right click on the green platform project we have
+        in the explorer tab and click <b>Build Project</b>. Next right click again click <b>Application Project...</b>
+      </p>
+      <figure>
+        <img src="/projects/project list/FPGAs/captures/18 Build Application project.PNG" title="Build Application project">
+        <figcaption>Various media snippets I consumed this week.</figcaption>
+      </figure>
+      <p>
+        Since this is a new project everything should look very clean in the explorer. At this point it's important to have the zybo
+        plugged in and turned on. we can right click the application project we just created and hover over <b>Debug As</b>, 
+        and then click <b>1 Launch on Hardware (System Project Debug)</b>
+      </p>
+      <figure>
+        <img src="/projects/project list/FPGAs/captures/20 connect to serial port.PNG" title="connect to serial port">
+        <figcaption>connect to serial port.</figcaption>
+      </figure>
+      <p>It may also be necessary to set up the the serial console that vitis comes with.</p>
+      <figure>
+        <img src="/projects/project list/FPGAs/captures/21. resume - Hello World!.PNG" title=" Hello World">
+        <figcaption>Hello World!</figcaption>
+      </figure>
+      <p>It works! (Unless it doesn't in which case I'm sorry I don't know how to help).</p>
     
 <div id="outline-container-headline-1" class="outline-2">
 <h3 id="headline-1"></h3>
@@ -66,14 +160,27 @@
   <div class="footnote-definitions">
     <div class="footnote-definition">
       <sup id="footnote-1"><a href="#footnote-reference-1">1</a></sup>
-        <div class="footnote-body">
-          <ul>
-            <li><a href="https://www.youtube.com/watch?v=Mb-cStd4Tqs">Hello world video using Xilinx Zynq, Vivado 2020, and Vitis</a></li>
-          </ul>
-        </div>
+      <div class="footnote-body">
+        <ul>
+          <li><a href="https://www.youtube.com/watch?v=Mb-cStd4Tqs">Hello world video using Xilinx Zynq, Vivado 2020, and Vitis</a></li>
+        </ul>
+      </div>
+      <sup id="footnote-2"><a href="#footnote-reference-2">2</a></sup>
+      <div class="footnote-body">
+        <ul>
+          <li><a href="https://digilent.com/reference/programmable-logic/guides/vivado-create-hdl-wrapper">Create an HDL Wrapper</a></li>
+          <li><a href="https://stackoverflow.com/questions/41292307/what-is-top-level-hdl-wrapper-means-in-vivado-soc">What [does] "top-level HDL wrapper" means(sic) in Vivado SoC?</a></li>
+        </ul>
+      </div>
+      <sup id="footnote-3"><a href="#footnote-reference-3">3</a></sup>
+      <div class="footnote-body">
+        <ul>
+          <li><a href="https://docs.xilinx.com/r/en-US/ug892-vivado-design-flows-overview/Generating-IP-Output-Products">Generating IP Output Products</a></li>
+         </ul>
       </div>
     </div>
   </div>
+</div>
 
 </div>
 </body>

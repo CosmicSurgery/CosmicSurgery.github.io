@@ -76,7 +76,8 @@
         file (i guess the fpga isn't really doing anything?). For fpga implementations that seems like it would be an important part.
         Of course we will be needing the Zynq processor, which we can add by either right clicking on block design window, 
         or by clicking the plus sign in the block design toolbar. Next we click <b>Run Block Automation</b> in the green banner.
-        The default presets are okay in this tutorial.    
+        The default presets are okay in this tutorial. What this does is it automatically configures certain aspects of the IP for you.
+        So if you have multiple blocks it will automatically interconnect those blocks (for known IP structures). 
       </p>
       <p>
         Next we click on <b>Validate Design (F8)</b> in the design block toolbar. Here Xilinx is just checking to make sure there
@@ -103,36 +104,72 @@
         <figcaption>Don't worry about these.</figcaption>
       </figure>
       <p>
-        Next we needed to click on the design source and Create an HDL wrapper. According to Digilent
+        Next we needed to click on the design source and <b>Create an HDL wrapper</b>. According to Digilent
         <sup class="footnote-reference"><a id="footnote-reference-2" href="#footnote-2">2</a></sup>, "this process translates 
         the block design into a source file that can be read by the Vivado tools, and is used to build the actual design". Got it...
-        Leos313 
-        <li><b>PL</b> - Programmable Logic</li>
+        Leos313 \
         explains further: "The WRAPPER is the file that connect the output/input port of your design to the physical pin 
-        described in the constraint file."
+        described in the constraint file." 
+      </p>
+      <p>
+        In the video, Robert describes it a little bit more; Basically in order to do the next step (Synthesis), the synthesizer
+        is going to expect HDL code (HLD?) at the top level of the design. He also mentions that by letting Vivado manage the 
+        wrapper it will also "auto-update" the wrapper so that we don't need to every time we make a change to the design.
       </p>
       <p>
         We need to generate output products too apparently. Can read more about that here
         <sup class="footnote-reference"><a id="footnote-reference-3" href="#footnote-3">3</a></sup>. 
       </p>
       <p>
-        Finally we're ready to Launch Vitis. Click, <b>Create new platform project</b> and make sure to choose the same location
-        as your vivado project (I think this is what I was doing wrong). 
+        This stage is actually three steps: <b>Synthesis</b>, <b>Implementtaion</b>, and <b>Generate bitstream</b>
+      </p>
+      <ul><li><b>Synthesis</b> - Takes all the files in the project and create a flattened netlis that instantiates all of the IP
+      that we've either instantiated in the block diagram or inferred in the HDL code.</li>
+      <li><b>Implementation</b> - Takes all the primitives in the flattened netlist and maps them to the primitives associated with
+      the specific device when we created the project. (place and route is also done?)</li>
+      <li><b>Bitstream</b> - This is responsible for programming the part.</li>
+      </ul>
+      <p>
+        We can actually do all three by clicking <b>Generate Bitstream</b>, Vivado will know that we haven't done the other two steps
+        and it will automatically run all three. This usally takes a long time.
+      </p>
+      <p>
+        The last thing we need to do in Vivado is to go to File -> Export -> <b>Export Hardware</b>, make sure tick the "include bitstream"
+        box. 
+      </p>
+      <p>
+        Once that's done, we're finally ready to Launch Vitis. Click, <b>Create new platform project</b> and make sure to choose the same location
+        as your vivado project (I think this is what I was doing wrong). If the .xsa file was created correctly, and if nothing else went wrong
+        we should see the defaults.
+        <ul>
+          <li>Operating System: Standalone</li>
+          <li>Processor: ps7_cortexa9_0</li></ul>
       </p>  
+      <p>
+        I found that if I delete a project and create a new one with the same name, Vitis will not have forgotten it somehow. I was having
+        issues with my .xsa file and it wasn't until I started a comletely new project with a new project name that I was able to move one to
+        the next step.
+      </p>
       <figure>
         <img src="/projects/project list/FPGAs/captures/13 Load xsa.PNG" title="Load xsa">
         <figcaption>Load xsa.</figcaption>
       </figure>
       <p>
         The .xsa file is the HDL wrapper we created earlier. Then we should right click on the green platform project we have
-        in the explorer tab and click <b>Build Project</b>. Next right click again click <b>Application Project...</b>
+        in the explorer tab and click <b>Build Project</b>.
       </p>
       <figure>
         <img src="/projects/project list/FPGAs/captures/18 Build Application project.PNG" title="Build Application project">
         <figcaption>Various media snippets I consumed this week.</figcaption>
       </figure>
       <p>
-        Since this is a new project everything should look very clean in the explorer. At this point it's important to have the zybo
+        Up until now we have just been configuring the hardware so that we have something to run. Now we actually need to create the hello world
+        project. Hover over File, New and then click <b>Application Project...</b>. No we're getting ready to create the actual firmware that 
+        is going to run on the Xilinx device. We can choose from some templates, in this case we go with hello world. Make sure to right click the 
+        application project at this point and build it as well.
+      </p>
+      <p>
+        Also, since this is a new project everything should look very clean in the explorer. At this point it's important to have the zybo
         plugged in and turned on. we can right click the application project we just created and hover over <b>Debug As</b>, 
         and then click <b>1 Launch on Hardware (System Project Debug)</b>
       </p>
@@ -140,13 +177,14 @@
         <img src="/projects/project list/FPGAs/captures/20 connect to serial port.PNG" title="connect to serial port">
         <figcaption>connect to serial port.</figcaption>
       </figure>
-      <p>It may also be necessary to set up the the serial console that vitis comes with.</p>
+      <p>
+        It may also be necessary to set up the the serial console that vitis comes with. Otherwise we can click <b>resume</b>.
+      </p>
       <figure>
         <img src="/projects/project list/FPGAs/captures/21. resume - Hello World!.PNG" title=" Hello World">
         <figcaption>Hello World!</figcaption>
       </figure>
       <p>It works! (Unless it doesn't in which case I'm sorry I don't know how to help).</p>
-    
 <div id="outline-container-headline-1" class="outline-2">
 <h3 id="headline-1"></h3>
 <div id="outline-text-headline-1" class="outline-text-2">

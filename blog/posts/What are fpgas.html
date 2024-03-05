@@ -1,116 +1,247 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="/style.css" type="text/css" />
-  <title>Updates to my website</title>
-</head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/style.css" type="text/css" />
+    <title>What are FPGAs?</title>
+  </head>
 
   <body>
-    <header class='header'>
-  <a class="logo" href="/">home</a>
-  <nav>
-    <a href="/blog">Blog</a>
-    <a href="/projects">Projects</a>
-    <a href="https://www.github.com/CosmicSurgery">github</a>
-  </nav>
-</header>
+    <header class="header">
+      <a class="logo" href="/">home</a>
+      <nav>
+        <a href="/blog">Blog</a>
+        <a href="/projects">Projects</a>
+        <a href="https://www.github.com/CosmicSurgery">github</a>
+      </nav>
+    </header>
 
-<div class="container">
-    <h1 class="title"> What are FPGAs?
-        <br>
+    <div class="container">
+      <h1 class="title">
+        What are FPGAs?
+        <br />
         <span class="subtitle"></span>
-    </h1>
-    <p>
-        What are FPGAs (Field-Programmable Gate Arrays) and what are they for? Not too many people know about FPGAs, even STEM people. My dad works with FPGAs but when he tried to explain
-        them to me most of the stuff went over my head. I think most people aren't aware of what FPGAs are because:
-        <ul>
-            <li>They are niche.</li>
-            <li>Most of the time you don't need to know what makes it different from any other hardware.</li>
-            <li>It's kind of hard to explain.</li>
-        </ul>
-    </p>
-    <p>
-        "FPGAs are something between software and hardware." This is the simplest explanation of what FPGAs are and is the one that I understood the best. My understanding 
-        quickly evaporated if you were to ask me: What makes it different from software? or How do you make hardware programmable?
-    </p>
-    <p>
-        Since I've started to <a href="/projects/project list/FPGAs/index.html">learn how to program FPGAs</a> I wanted to learn what they actually are, and what I'm actually
-        doing when I make an LED turn on and off depending on if a I push a button or not. 
-    </p>
-    <div id="outline-container-headline-1" class="outline-2">
+      </h1>
+      <p>
+        What are FPGAs (Field-Programmable Gate Arrays) and what are they for?
+        Not too many people know about FPGAs, even STEM people. My dad works
+        with FPGAs but when he tried to explain them to me most of the stuff
+        went over my head. I think most people aren't aware of what FPGAs are
+        because:
+      </p>
+      <ul>
+        <li>They are niche.</li>
+        <li>
+          Most of the time you don't need to know what makes it different from
+          any other hardware.
+        </li>
+        <li>It's kind of hard to explain.</li>
+      </ul>
+      <p>
+        "FPGAs are something between software and hardware." This is the
+        simplest explanation of what FPGAs are and is the one that I understood
+        the best. My understanding quickly evaporated if you were to ask me:
+        What makes it different from software? or How do you make hardware
+        programmable?
+      </p>
+      <p>
+        Since I've started to
+        <a href="/projects/project list/FPGAs/index.html"
+          >learn how to program FPGAs</a
+        >
+        I wanted to learn what they actually are, and what I'm actually doing
+        when I make an LED turn on and off depending on if a I push a button or
+        not.
+      </p>
+      <div id="outline-container-headline-1" class="outline-2">
         <h2 id="headline-1">
-            A middle-ground between software (SW) and hardware (HW)
+          A middle-ground between software (SW) and hardware (HW)
         </h2>
         <div id="outline-text-headline-1" class="outline-text-2">
-            <p>
-                fpgas <sup id="footnote-1"><a href="#footnote-reference-1">1</a></sup>
-                basically combine logical gates in order to create some operations. They offer a middle ground between speed/performance and flexibility. So software 
-                is really good at creating flexible applications. This is really useful if you want to make a website, or an application that can run on different browsers on
-                different devices. Software is also cheap to deploy, and the barrier of entry to learning programming is low with modern programmign languages like python.
-                The downside of programming is that it is not very fast computationally. So in some use-cases where you need something that is really precise and 
-                high performing, it might be very difficult or impossible to get the job done with software. In these cases it would be useful to have a hard-wired 
-                circuit that does exactly what you want, such as ASICs (Application-Specific Integrated Circuits). 
-            </p>
-            <p>
-                Of course this comes with some costs, such as the cost
-                the manufacturing, designing and testing costs. It's not as trivial to test the circuits like it would be in software, and you can't modify the circuit after
-                it's been fabricated. FPGAs are a middle ground, because they program hardware. So they are most useful in applications where you need something to be very 
-                precise, but it's not going to be mass-produced to the level where you would want to design a bunch of ASICs and have them mass produced.
-            </p>
-        </div>
-        <h2 id="headline-1">
-            How do FPGAs work?
-        </h2>
-        <div id="outline-text-headline-1" class="outline-text-2">
-            <p>
-                Intel<sup id="footnote-2"><a href="#footnote-reference-2">2</a></sup>
-                made a really great video from top to bottom on how FPGAs work. The speaker starts out by explaining digitial logic. 
-            </p>
-            <figure>
-                <img src="/assets/circuit design of logic gates.PNG" title="Transistor level diagram of logic gates.">
-                <figcaption>
-                    Transistor level diagram of logic gates.
-                    <sup id="footnote-2"><a href="#footnote-reference-2">2</a></sup>
-                </figcaption>
-            </figure>
-            <p>
-                De Morgan's theorem states that we can build all logic circuits just with the NOT, AND and OR gates. From these smaller circuits we can create
-                bigger circuits that can perform arithmetic, make decisions and can store previous states. Using electrical current and by intellgiently designing
-                circuits in this way we can create chip that performs a certain task very quickly and robustly. In the above figure you can also see the LUT (look-up
-                table) for each logic gate. 
-            </p>
-        </div>
-    </div>
-</div>
-
-<div class="footnotes">
-    <hr class="footnotes-separatator">
-    <div class="footnote-definitions">
-        <div class="footnote-definition">
+          <p>
+            fpgas
             <sup id="footnote-1"><a href="#footnote-reference-1">1</a></sup>
-            <div class="footnote-body">
-                <ul>
-                    <li><a href="https://www.youtube.com/watch?v=ePwo3P1iZO4 ">The "Do Anything" Chip: FPGA</a></li>
-                </ul>
-            </div>
-            <sup id="footnote-2"><a href="#footnote-reference-2">2</a></sup>
-            <div class="footnote-body">
-                <ul>
-                    <li><a href="https://www.youtube.com/watch?v=iHg0mmIg0UU">Architecture All Access: Modern FPGA Architecture</a></li>
-                </ul>
-            </div>
-            <sup id="footnote-3"><a href="#footnote-reference-3">3</a></sup>
-            <div class="footnote-body">
-                    <ul>
-                        <li><a href="https://google.com">example reference</a></li>
-                    </ul>
-            </div>
-        </div>  
+            basically combine logical gates in order to create some operations.
+            They offer a middle ground between speed/performance and
+            flexibility. So software is really good at creating flexible
+            applications. This is really useful if you want to make a website,
+            or an application that can run on different browsers on different
+            devices. Software is also cheap to deploy, and the barrier of entry
+            to learning programming is low with modern programmign languages
+            like python. The downside of programming is that it is not very fast
+            computationally. So in some use-cases where you need something that
+            is really precise and high performing, it might be very difficult or
+            impossible to get the job done with software. In these cases it
+            would be useful to have a hard-wired circuit that does exactly what
+            you want, such as ASICs (Application-Specific Integrated Circuits).
+          </p>
+          <p>
+            Of course this comes with some costs, such as the cost the
+            manufacturing, designing and testing costs. It's not as trivial to
+            test the circuits like it would be in software, and you can't modify
+            the circuit after it's been fabricated. FPGAs are a middle ground,
+            because they program hardware. So they are most useful in
+            applications where you need something to be very precise, but it's
+            not going to be mass-produced to the level where you would want to
+            design a bunch of ASICs and have them mass produced.
+          </p>
+        </div>
+        <h2 id="headline-1">How do FPGAs work?</h2>
+        <div id="outline-text-headline-1" class="outline-text-2">
+          <p>
+            Intel<sup id="footnote-2"
+              ><a href="#footnote-reference-2">2</a></sup
+            >
+            made a really great video from top to bottom on how FPGAs work. The
+            speaker starts out by explaining digitial logic.
+          </p>
+          <figure>
+            <img
+              src="/assets/circuit design of logic gates.PNG"
+              title="Transistor level diagram of logic gates."
+            />
+            <figcaption>
+              Transistor level diagram of logic gates.
+              <sup id="footnote-2"><a href="#footnote-reference-2">2</a></sup>
+            </figcaption>
+          </figure>
+          <p>
+            De Morgan's theorem states that we can build all logic circuits just
+            with the NOT, AND and OR gates. From these smaller circuits we can
+            create bigger circuits that can perform arithmetic, make decisions
+            and can store previous states. Using electrical current and by
+            intellgiently designing circuits in this way we can create chip that
+            performs a certain task very quickly and robustly. In the above
+            figure you can also see the truth table for each logic gate.
+          </p>
+        </div>
+      </div>
+      <div id="outline-container-headline-1" class="outline-2">
+        <h3 id="headline-1">ALMs and Routing</h3>
+        <div id="outline-text-headline-1" class="outline-text-2">
+          <p>
+            Among the things we can create using De Morgan's theorem are:
+            multiplexers and LUTs (lookup tables). Multiplexers are modules with
+            multiple inputs, select registers and a single possible output.
+            Using the the select registers you can control which input lines to
+            output.
+          </p>
+          <figure>
+            <img src="/assets/mux.PNG" title="Mux." />
+            <figcaption>
+              Schematic of a 2-to-4 line decoder.
+              <sup id="footnote-3"><a href="#footnote-reference-3">3</a></sup>
+            </figcaption>
+          </figure>
+          <p>
+            Similarly, LUTs are just like multiplexers except the inputs are
+            values in programmable memory. We can choose which values to set the
+            LUT inputs to be, thus approximating a logic gate. The below example
+            is a LUT that is mimicking the logic of an AND gate.<sup
+              id="footnote-4"
+              ><a href="#footnote-reference-4">4</a></sup
+            >
+          </p>
+          <table class="table table-hover table-striped table-bordered">
+            <tbody>
+              <tr align="center">
+                <th class="text-center">Address (In[1:0])</th>
+                <th class="text-center">Value (Out)</th>
+              </tr>
+              <tr align="center">
+                <td>00</td>
+                <td>0</td>
+              </tr>
+              <tr align="center">
+                <td>01</td>
+                <td>0</td>
+              </tr>
+              <tr align="center">
+                <td>10</td>
+                <td>0</td>
+              </tr>
+              <tr align="center">
+                <td>11</td>
+                <td>1</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+            These LUTs are paired with flip-flops to create ALMs (Adaptive Logic
+            Modules). These structures are spaced out on a grid connected by
+            routing wires that allowing programmers to design exactly which
+            modules connect to each other. The flexibility comes at the cost of
+            speed.
+          </p>
+          <p>
+            The last important thing to know is that FPGAs need to be
+            re-programmed every time they are cycled.<sup id="footnote-5"
+              ><a href="#footnote-reference-5">5</a></sup
+            >
+          </p>
+        </div>
+      </div>
     </div>
-</div>
 
-</body>
+    <div class="footnotes">
+      <hr class="footnotes-separatator" />
+      <div class="footnote-definitions">
+        <div class="footnote-definition">
+          <sup id="footnote-1"><a href="#footnote-reference-1">1</a></sup>
+          <div class="footnote-body">
+            <ul>
+              <li>
+                <a href="https://www.youtube.com/watch?v=ePwo3P1iZO4 "
+                  >The "Do Anything" Chip: FPGA</a
+                >
+              </li>
+            </ul>
+          </div>
+          <sup id="footnote-2"><a href="#footnote-reference-2">2</a></sup>
+          <div class="footnote-body">
+            <ul>
+              <li>
+                <a href="https://www.youtube.com/watch?v=iHg0mmIg0UU"
+                  >Architecture All Access: Modern FPGA Architecture</a
+                >
+              </li>
+            </ul>
+          </div>
+          <sup id="footnote-3"><a href="#footnote-reference-3">3</a></sup>
+          <div class="footnote-body">
+            <ul>
+              <li>
+                <a href="https://en.wikipedia.org/wiki/Multiplexer"
+                  >Multiplexer</a
+                >
+              </li>
+            </ul>
+          </div>
+          <sup id="footnote-4"><a href="#footnote-reference-4">4</a></sup>
+          <div class="footnote-body">
+            <ul>
+              <li>
+                <a
+                  href="https://learn.sparkfun.com/tutorials/how-does-an-fpga-work/all"
+                  >Sparkfun fpga tutorial</a
+                >
+              </li>
+            </ul>
+          </div>
+          <sup id="footnote-5"><a href="#footnote-reference-5">5</a></sup>
+          <div class="footnote-body">
+            <ul>
+              <li>
+                <a
+                  href="https://www.cardinalpeak.com/blog/curious-about-what-an-fpga-is-and-how-it-actually-works"
+                  >Cardinal peak how an fpga works</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

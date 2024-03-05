@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/style.css" type="text/css" />
+    <title>playing with chatgpt</title>
+  </head>
+
+  <body>
+    <header class="header">
+      <a class="logo" href="/">home</a>
+      <nav>
+        <a href="/blog">Blog</a>
+        <a href="/projects">Projects</a>
+        <a href="https://www.github.com/CosmicSurgery">github</a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <h1 class="title">
+        playing with chatgpt
+        <br />
+        <span class="subtitle"></span>
+      </h1>
+      <p>
+        I remember when I first was made aware of chatgpt. It was in Novebmer in
+        2021, and I had just started the second year of my masters in Tübingen.
+        It actually came at a really convenient time, because the second year of
+        my program was dedicated to doing lab rotations and writing reports. The
+        way the <i>Neural Information Process</i> program worked was that the
+        first year would be all classes, then the second year we would have:
+      </p>
+      <li>
+        6 weeks to write an essay report on any topic in Neuroscience we wanted
+        (I did mine on ADHD) with a presentation at the end. <- Chatgpt comes
+        out here!
+      </li>
+      <li>
+        10 weeks of a lab rotation in any neuroscince lab with a presentation at
+        the end (Systems Consolidation)
+      </li>
+      <li>
+        6 months to write our masters thesis on any Neuroscience topic (Temporal
+        Coding)
+      </li>
+      <p>
+        Well since it was my first serious paper in college (I hadn't had to
+        write a thesis for my Physics bachelor), I had no idea what to do or how
+        to organize myself. The project started off as a neurotransmitters
+        project, and I read some really cool papers from computational models to
+        the physiological underpinnings. Maybe in another post I'll go into
+        detail about them.
+      </p>
+      <p>
+        Anyway, at the beginning of the 6th and final week, I was trying to
+        figure out how I was going to write 10,000 words on my little ADHD
+        project. In retrospect I made it way way harder than it needed to be. I
+        just needed to pick something interesting and review topics about it...
+        Well anyway, chatgpt came out and I had a shiny new tool to help me get
+        that word count up!
+      </p>
+      <p>
+        Unfortunately, chatgpt didn't know my writing style, it also didn't know
+        very much about neuroscience or adhd. In the end I think I barely used
+        it... However, I used it a little bit more for my lab rotation and a lot
+        more during my thesis! In my case it served mainly as an idea generator.
+        Sometimes I would ask it to start an outline for me.
+      </p>
+      <p>
+        I remember in the middle of my masters thesis I wanted to present my
+        (half-baked) work at a conference for junior researchers and I had
+        chatgpt draft an entire overleaf template! I was trying to come up with
+        ideas to solve a pattern detection problem and it was suggesting ways
+        that I could solve it. Most of the ideas I had already come up with but
+        it did suggest one that I hadn't heard of and ended up using!
+      </p>
+      <p>
+        So chatgpt is definitely useful, in a recent
+        <a href="/projects/project list/RL/tictactoe/02-22-2024.html">post</a> I
+        used it to create a game of tic tac toe. It saved me countless of hours
+        and demosntrated it's utility as a python snippet generator. Ironically
+        though, none of my use cases have been to actually have chatgpt generate
+        the content. That's something I want to try.
+      </p>
+      <div id="outline-container-headline-1" class="outline-2">
+        <h2 id="headline-1">Chatgpt describing my personal project</h2>
+        <div id="outline-text-headline-1" class="outline-text-2">
+          <p>
+            In a project I'm working on to test reinforcement learning on a
+            tictactoe game, I tried to feed chatgpt my notes and see if it could
+            explain my thinking. Here is the result:
+          </p>
+          <p>
+            <b
+              >User: Hi chatgpt, I'm writing a blog post about my thought
+              process for creating a bot to play tic tac toe using reinforcement
+              learning. I've since finished the bot and it's working well, but I
+              want to start off the blog by talking through my thought process.
+              Here are my notes, please condense them into my through process
+              please! (it's in markdown with some latex) . all notes in
+              backquotes ```{my_notes_here}```</b
+            >
+          </p>
+          <pre><code class="markdown">
+Creating a Tic Tac Toe Bot: A Reinforcement Learning Approach
+Defining the Objective
+Desired: A bot exploring moves and strategies to improve winning chances.
+Initial observation: The board is symmetrical, reducing initial moves to 3: side, corner, and middle.
+Addressing the State and Action Spaces
+State space complexity increases after initial moves.
+Considering representing action space with a board reflecting expected rewards.
+Recognizing the irrelevance of the path taken to a state; only the current state-action matters.
+Designing the Algorithm
+Initial contemplation of a brute-force algorithm:
+Checking and updating states against a dictionary.
+Action selection based on maximum expected reward, with a parameter for agent maturity.
+Refining the Approach
+Considering heuristic storage to handle complexity efficiently.
+Proposing a sum-based reward system for row and diagonal victories.
+Acknowledging potential limitations in learning complex formations.
+Future Directions
+Contemplating neural networks to handle dimensionality and complexity.
+Considering encoding the board state as a vector for neural network input.
+Policy Definition
+Introduction of a policy function aiming to maximize the state-action value.
+Boundary Considerations
+Addressing end-of-game scenarios and potential actions.
+          </code></pre>
+          <p>
+            It was alright, and definitely more readable than my notes. The
+            thing is I wanted it to be in the format of a blog post. And
+            although it was readable, my notes were far more descriptive. I
+            tried to give it some feedback:
+          </p>
+          <p>
+            <b
+              >User: can you make it more blog-like and less of a summary. Try
+              to capture my stream of consciousness</b
+            >
+          </p>
+          <pre><code class="markdown">
+    Exploring the Journey of Creating a Tic Tac Toe Bot: A Dive into Reinforcement Learning
+Unveiling the Desire
+As I embarked on the quest to create a bot capable of mastering Tic Tac Toe through reinforcement learning, 
+I found myself immersed in the allure of crafting a digital mind that could explore the intricacies of the 
+game. My vision was clear: I yearned for a bot that would not just play mechanically but would evolve, 
+learning from every move and strategy it encountered.
+
+Navigating the Initial Terrain
+At the genesis of this endeavor, I couldn't help but notice the symmetrical nature of the Tic Tac Toe board. 
+It dawned on me that the initial moves boiled down to a mere trifecta: the side, the corner, and the middle. 
+Yet, as the game unfolded, the state space expanded exponentially, presenting a tantalizing challenge.
+
+Contemplating State and Action Spaces
+Intrigued by the complexity that lay ahead, I delved into the realms of state and action spaces. 
+How best to represent these realms in a way that would empower the bot to navigate the game intelligently? 
+I toyed with the idea of a board reflecting expected rewards, pondering over the interplay between state 
+updates and action choices.
+
+Pondering the Algorithm
+A brute-force algorithm initially seemed a plausible approach. Yet, as I mused over its intricacies, 
+I found myself grappling with questions of efficiency and scalability. How could the bot efficiently 
+sift through the myriad of possible states and actions? How could it select actions that promised the 
+greatest reward, while still allowing room for exploration?
+
+Refining the Strategy
+As I delved deeper into the nuances of the game, I realized the importance of heuristic storage. 
+Could a sum-based reward system for row and diagonal victories provide a more nuanced understanding 
+of game dynamics? Or would it inadvertently limit the bot's ability to grasp complex formations? These 
+were the questions that lingered in my mind as I sought to refine my approach.
+
+Looking Toward the Future
+Yet, as I pondered over the limitations of my current approach, I couldn't help but wonder about the 
+possibilities that lay ahead. Could neural networks offer a solution to the dimensionality problem? 
+Might they provide a pathway to unlocking the true potential of the bot, enabling it to navigate the 
+complexities of the game with ease?
+
+Embracing Uncertainty
+As I ventured further into the realm of reinforcement learning, I found myself embracing the uncertainty 
+that lay at its core. End-of-game scenarios loomed on the horizon, presenting a myriad of potential actions 
+and outcomes. Yet, amidst the uncertainty, there was a sense of excitement—a thrill that came from charting 
+unknown territories and unraveling the mysteries of the game.
+
+Conclusion: A Journey Unfolds
+And so, as I set forth on this journey of creation, I couldn't help but feel a sense of anticipation. 
+With each twist and turn, each challenge and triumph, the bot would inch closer to its ultimate goal: 
+mastery of Tic Tac Toe. And though the path ahead was fraught with uncertainty, I knew that with each 
+step, the bot would grow stronger, wiser, and more adept at navigating the complexities of the game.
+
+This rendition seeks to capture the essence of your thought process, infusing it with the excitement and 
+uncertainty inherent in the journey of creating a Tic Tac Toe bot using reinforcement learning.
+          </code></pre>
+          <p>
+            Oh my god... That was not what I wanted at all. I wanted it to flow
+            a little bit but I wasn't trying to write poetry. I had a new idea:
+          </p>
+          <p>
+            User: that sounded way to poetic, and isn't really my language...
+            I'll show you other blog posts of mine so you can get an idea of the
+            language I use:
+          </p>
+          <p>1. ```<{blog_post_1}>```</p>
+          <p>2. ```<{blog_post_1}>```</p>
+          <p>
+            The result wasn't much better... Next I asked it to write the blog
+            as if it were an engineer. I thought that might do the trick. With
+            more coaxing it eventually produces this:
+          </p>
+          <pre><code class="markdown">
+            Building a Tic Tac Toe Bot: My Journey with Reinforcement Learning
+Getting Started
+I've dived into making a Tic Tac Toe bot using reinforcement learning, and it's a mix of excitement and 
+tech stuff. The goal is simple: make a bot that can play smart and learn as it goes.
+
+Initial Look
+Breaking down the game shows some basic moves: side, corner, and middle. But as the game rolls on, things 
+get complicated with lots of possible moves and actions.
+
+Planning the Design
+Figuring out how to represent the game's state and moves is tricky. Do I use a board that shows expected 
+rewards? Or is there a simpler way to guide the bot's decisions?
+
+Mapping Out the Algorithm
+Sketching out a plan, I'm thinking about how to balance trying new stuff and sticking to what works. A 
+brute-force approach sounds easy but might not be efficient.
+
+Tweaking as I Go
+As I dig deeper, I'm testing out different ways to store moves and rewards. Can I find a way to track 
+wins without overcomplicating things?
+
+Looking to the Future
+Next up, I'm thinking about using neural networks to handle the game's complexity. They might be the 
+key to making the bot even smarter.
+
+Wrapping Up
+In the end, it's all about problem-solving and making things work. With each step, I'm getting closer 
+to building a Tic Tac Toe champ.
+
+In this version, I've simplified the language and toned down the use of literary techniques, aiming 
+for a straightforward and basic style reminiscent of an engineer's approach.
+          </code></pre>
+          <p>
+            It was better... But I didn't like the unnecessary titles, and it
+            was a bit clunky. It was around this point that I gave up and
+            decided to write my own blog the old fashioned-way.
+          </p>
+        </div>
+      </div>
+      <div id="outline-container-headline-2" class="outline-2">
+        <h3 id="headline-1">What's next?</h3>
+        <div id="outline-text-headline-1" class="outline-text-2">
+          <p>
+            If this can be done, someone is definitely already doing it. Maybe
+            I'll see if there are any medium or tds posts on the subject. I know
+            I've seen a lot of tweets essentially saying you can train llm's to
+            talk like you buy giving them your writing. Would be interesting to
+            look more into that...
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

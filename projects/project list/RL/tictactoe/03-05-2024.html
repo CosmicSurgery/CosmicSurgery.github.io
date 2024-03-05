@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/style.css" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+    <title>Chatpgt builds tic tac toe!</title>
+  </head>
+  <body>
+    <header class="header">
+      <a class="logo" href="/">home</a>
+      <nav>
+        <a href="/blog">Blog</a>
+        <a href="/projects">Projects</a>
+        <a href="https://www.github.com/CosmicSurgery">github</a>
+      </nav>
+    </header>
+    <div class="container">
+      <h1 class="title">
+        Building my own RL algorithm
+        <br />
+        <span class="subtitle"></span>
+      </h1>
+      <p>
+        So at this point, the tic tac toe logic is all set-up, I have a working
+        menu with tkinter that allows the user to play with another person on
+        the same computer, to play against an ai in single player mode, and to
+        simulate tictactoe games between two ai's without a gui.
+      </p>
+      <div id="outline-container-headline-1" class="outline-1">
+        <h2>ai.py</h2>
+        <p>
+          In a previous prompt, and without explicitly asking, chatpgt gave me a
+          little function to check for empty values on the board. The function
+          would loop through the board and check for empty values, populating a
+          list of (row, col) tuples. This could also have been easily
+          accomplished by using <code>np.where()</code> but at the time I was
+          still trying to avoid using numpy if possible.
+        </p>
+        <div class="src src-python">
+          <div class="highlight">
+            <pre><code class="python">
+class NaiveAI:
+def __init__(self, player):
+  self.name = 'NaiveAI'
+  self.player = player
+
+def get_move(self, board):
+  # Generate a random move
+  empty_cells = [(row, col) for row in range(3) for col in range(3) if board[row][col] == 0]
+  if empty_cells:
+      return random.choice(empty_cells)
+  else:
+      return None  # No valid moves available (board is full or already won)
+
+            </code></pre>
+          </div>
+        </div>
+      </div>
+      <div id="outline-container-headline-1" class="outline-2">
+        <h3 id="headline-1">What I want</h3>
+        <div id="outline-text-headline-1" class="outline-text-2">
+          <p>
+            I want a bot that explores possible moves, and tries different
+            strategies to improve their chances of winning.
+          </p>
+          <p>
+            The first thing that occurs to me is that the board is symmetrical.
+            Thus there really are only 3 starting moves: side, corner and
+            middle. Once this move has been played however the state space opens
+            up:
+            <li>corner -> 4 possible unique actions</li>
+            <li>side -> 5 possible unique actions</li>
+            <li>middle -> 2 possible unique actions</li>
+          </p>
+          <p>
+            Okay: So what is the best way to represent the action space?
+            Probably the best way is to have a board with each square
+            represented by expected reward? The state space has the same
+            dimensionality as the action space, so as the state space updates
+            the action space would as well.
+          </p>
+          <p>
+            The other thing that is important is that the path that the agent
+            took to get to a certain state space is irrelevant (thus there is no
+            temporal component), the only thing that matters is: given the
+            current state, what action should be done?
+          </p>
+          <p>Hmmm... What about a brute force algorithm?</p>
+          <p>
+            Everytime the ai is prompted to make a move, it checks the current
+            state-space against a dictionary of previous states that it has
+            already seen.
+            <li>
+              if it's a brand new state -> it adds this state to the dictionary
+              with the key being the original board.
+            </li>
+            <li>
+              it also create a new list of tuples to store it's previous moves
+            </li>
+          </p>
+          <p>How many possible tic tac toe states are there anyway?</p>
+          <figure>
+            <img
+              src="/projects/project list/RL/tictactoe/captures/possilbe states.PNG"
+              title="capture of tic tac toe analysis"
+            />
+            <figcaption>
+              Abtract from (Zuhri 2022)<sup class="footnote-reference"
+                ><a id="footnote-reference-1" href="#footnote-1">1</a></sup
+              >
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+      <div id="outline-container-headline-2" class="outline-2">
+        <h3 id="headline-1">A new approach</h3>
+        <div id="outline-text-headline-1" class="outline-text-2">
+          <p>Clearly I need to use a heuristic...</p>
+          <p>
+            I guess one solution to reduce the size of the state space would be
+            just to store the relevant square right? Instead of storing the
+            whole board, I could store the row and the diagonals of squares in
+            consideration.
+          </p>
+          <p>
+            Naively I am going to start by assuming that placing moves on a row
+            vs. a column or diagonal have an equal effect on win probability all
+            things the same (However, I concede this might not be true).
+            Following this trategy, the expected reward of each action could be
+            defined by the sum of the contributions of all rows and diagonals.
+          </p>
+          <p>
+            So an agent just needs to learn <b>those</b> combinations. There are
+            3^3 - 2^2 - 2 or 27 - 8 - 2 = 17 possible combinations. Now that's a
+            lot more manageable!
+          </p>
+        </div>
+      </div>
+      <p>TO BE CONTINUED</p>
+      <div class="footnotes">
+        <hr class="footnotes-separatator" />
+        <div class="footnote-definitions">
+          <div class="footnote-definition">
+            <sup id="footnote-1"><a href="#footnote-reference-1">1</a></sup>
+            <div class="footnote-body">
+              <ul>
+                <li>
+                  <a
+                    href="https://informatika.stei.itb.ac.id/~rinaldi.munir/Matdis/2021-2022/Makalah2021/Makalah-Matdis-2021%20(148).pdf"
+                    >A Combinatorial Analysis of Tic-Tac-Toe and The Theoretical
+                    Advantage of Playing First
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

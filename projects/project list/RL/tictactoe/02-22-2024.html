@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/style.css" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+    <title>Chatpgt builds tic tac toe!</title>
+  </head>
+  <body>
+    <header class="header">
+      <a class="logo" href="/">home</a>
+      <nav>
+        <a href="/blog">Blog</a>
+        <a href="/projects">Projects</a>
+        <a href="https://www.github.com/CosmicSurgery">github</a>
+      </nav>
+    </header>
+    <div class="container">
+      <h1 class="title">
+        Chatpgt builds tic tac toe!
+        <br />
+        <span class="subtitle"></span>
+      </h1>
+      <p>
+        This is the start of a series of projects I plan on starting. The goals
+        of these projects are primarily to: gain familiarity on using GUI's and
+        building standalone applications with a good organizational structure,
+        practice using chatgpt to speed up development time and most importantly
+        to implement and compare different learning algorithms.
+      </p>
+
+      <p>
+        Since I expect the topic of learning to be a pretty big topic in general
+        with multiple iterations, I decided to start with the simplest game I
+        could think of: Tic Tac Toe!
+      </p>
+      <p>
+        Also, since I've made games with gui's before (chess, platform jumper)
+        and am overall quite comfortable with python I figured it would be a
+        good opportunity to see what a workflow with chatpgt would be like.
+      </p>
+      <div id="outline-container-headline-1" class="outline-1">
+        <h2>Chagpt prompts</h2>
+        <div id="outline-text-headline-1">
+          <p></p>
+          <div class="src src-python">
+            <div class="highlight">
+              <pre><code class="python">
+def print_board(board):
+  for row in board:
+      print(" | ".join(row))
+      print("-" * 9)
+
+def initialize_board():
+    return [[" " for _ in range(3)] for _ in range(3)]
+
+def main():
+    board = initialize_board()
+    print_board(board)
+
+if __name__ == "__main__":
+    main()
+              </code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="outline-container-headline-1" class="outline-2">
+        <h3 id="headline-1">TEST</h3>
+        <div id="outline-text-headline-1" class="outline-text-2"></div>
+      </div>
+    </div>
+  </body>
+</html>

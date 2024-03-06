@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/style.css" type="text/css" />
+    <title>Boids</title>
+  </head>
+
+  <body>
+    <header class="header">
+      <a class="logo" href="/">home</a>
+      <nav>
+        <a href="/blog">Blog</a>
+        <a href="/projects">Projects</a>
+        <a href="https://www.github.com/CosmicSurgery">github</a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <h1 class="title">
+        Boids
+        <br />
+        <span class="subtitle"></span>
+      </h1>
+      <p>
+        Last week I spent a part of the weekend trying to re-create the famous
+        "boids" simulation of bird flocking behavior orignally by Craig
+        Reynolds. Here's a link<sup id="footnote-1"
+          ><a href="#footnote-reference-1">1</a></sup
+        >
+        to his website which has been around since 1986 by the looks of it.
+      </p>
+      <p>
+        It was a pretty easy project. I knew this beforehand because any
+        tutorial that shows off their boids simulation also tells you how it
+        works, and often gives you the code for it. For that reason I started
+        off the project without looking at any aid except the Craig Reynolds
+        website to understand the big idea.
+      </p>
+      <p>
+        The basic principle is that with three components you can simulate
+        flocking behavior, namely:
+      </p>
+      <ul>
+        <li>
+          <b>Separation</b> : Boids will seperate from other boids within the
+          radius of some small cricle r
+        </li>
+        <li>
+          <b>Alignment</b> : Boids will will align themselves to other boids in
+          the radius of some cricle r'
+        </li>
+        <li>
+          <b>Cohesion</b> : Boids will will slowly move to the center of mass of
+          the flock of birds that they are a part of, represented by cricle r''
+        </li>
+      </ul>
+      <div id="outline-container-headline-1" class="outline-2">
+        <h3 id="headline-1">Building the simulation</h3>
+        <div id="outline-text-headline-1" class="outline-text-2">
+          <p>
+            Unfortunately, I had some difficulties with the xbox screen record
+            feature that I wasn't aware of at the time; When I would hit record,
+            and then ran the code to bring up the simulation, the record feature
+            would continue to record the background before the window came up...
+            So annoying...
+          </p>
+          <p>
+            Anyway, I started as always by talking to chatgpt. At first I wasn't
+            sure exactly which format would be the most convenient to present
+            the boids simulation. I had seen others build a dynamic app with
+            live tunable parameters so that you can mess with the simulation
+            in-action. That was very appealing to me, but it looked like the
+            best way to do that would be to create a web-app, which most likely
+            means using javascript. I would have considered it, if I wasn't
+            hosting everything on a static webpage on github.
+          </p>
+          <p>
+            In the end I decided to use the pygame package from python. So I
+            told chatgpt what I wanted to do, and I asked it to start out by
+            drawing the shape of a single boid. All I really was expected was
+            for it to draw a triangle.
+          </p>
+          <p>
+            It worked out great! It imported and created pygame peripherals, and
+            then drew boids to the pygame screen on a continuous loop.
+          </p>
+          <p>
+            As often happens with chatgpt, it also inferred lot's of things that
+            I hadn't specified:
+          </p>
+          <ol>
+            <li>It defined an intrinsic speed for each boid</li>
+            <li>It defined an intrinsic angle for each boid</li>
+            <li>
+              It defined boundary conditions, boids would pass through the
+              boundary and come out the other side
+            </li>
+          </ol>
+          <p>
+            Since this was (probably) my first experience with building a
+            physically dynamic simulation I didn't have a great intuition about
+            how to define the default parameters. I liked the idea of having a
+            speed component, and then at every iteration taking the sin and cos
+            of that value to update the boids location on a cartesian cooridnate
+            system.
+          </p>
+          <p>
+            The first thing I wanted to change were the boundary conditions for
+            the boids. In order to make it more easy to visualize I asked
+            chatgpt to make a white box 20 pixels from the edge of the screen.
+            Once it generated that snippet I changed the values for it to look
+            better.
+          </p>
+          <p>
+            I didn't want boids to pass straight through the boundary and
+            reappear on the opposite corner, I wanted them to loop around on the
+            screen (That seemed more flocky to me).
+          </p>
+          <p>
+            My idea was to calculate the angular difference of a boids heading,
+            and it's angle with respect to the screen. I knew that if those
+            angles were the same, it would mean the boid is travelling directly
+            away from the the center of the screen, and if they were opposite it
+            would travel directly towards the center of the screen. I designed a
+            boundary condition update such that the boid such that it's heading
+            would change by a factor of it's angular difference with screen
+            center.
+          </p>
+          <figure>
+            <img src="/assets/whiteboard1.png" title="Notes in paint" />
+            <figcaption>My notes on the boundary conditions</figcaption>
+          </figure>
+          <p>
+            This ended up being the most time consuming part of the entire
+            project and took most of the weekend. I tried taking into account:
+            the direction of approach to the boundary, angle-dependent rotation
+            speeds, and played with different angular acceleration speeds. All
+            of this <b>after</b> realizing that the angle that pygame uses to
+            draw the boids and the true center angle that I was using
+            (intuitively the unit circl) did not match! Unfortunately, the video
+            demonstrating this was one of the casualties of the messed up
+            recordings, but luckily I have the video I took immediately after to
+            show that it had been fixed.c:\Users\miles\Downloads\Boids
+            Simulation 2024-02-24 00-23-51.gif
+          </p>
+          <figure>
+            <img
+              src="/assets/Boids Simulation 2024-02-24 00-23-51.gif"
+              title="Single boid test case"
+            />
+            <figcaption>Boid angle sanity check</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="footnotes">
+        <hr class="footnotes-separatator" />
+        <div class="footnote-definitions">
+          <div class="footnote-definition">
+            <sup id="footnote-1"><a href="#footnote-reference-1">1</a></sup>
+            <div class="footnote-body">
+              <ul>
+                <li>
+                  <a href="https://www.red3d.com/cwr/boids/"
+                    >Craig Reynolds' Boids</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
